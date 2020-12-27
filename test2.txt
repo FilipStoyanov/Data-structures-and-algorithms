@@ -1,0 +1,5 @@
+Paris Berlin 500
+Wien London 800
+Rome Ankara 1000
+Ankara Paris 1300
+Ankara Londo 1600
