@@ -1,6 +1,4 @@
 #pragma once
-#ifndef _HELPFUNCTION_H
-#define _HELPFUNCTION_H
 #include<iostream>
 #include<memory>
 #include<string>
@@ -11,7 +9,7 @@ bool sortbysec(const std::pair<std::string, unsigned int>& a,
 {
 	return (a.second < b.second);
 }
-bool MapMember(std::string input, std::unordered_map < std::string, std::list<std::pair<std::string, unsigned int>>>example)
+bool MapMember(const std::string& input, const std::unordered_map < std::string, std::list<std::pair<std::string, unsigned int>>> example)
 {
 	if (example.find(input) == example.end())
 	{
@@ -19,7 +17,7 @@ bool MapMember(std::string input, std::unordered_map < std::string, std::list<st
 	}
 	return true;
 }
-bool VisitedEdge(std::string current, std::vector<std::string> saveInit)
+bool VisitedEdge(const std::string& current, const std::vector<std::string> saveInit)
 {
 	for (size_t i = 0; i < saveInit.size(); i++)
 	{
@@ -31,4 +29,3 @@ bool VisitedEdge(std::string current, std::vector<std::string> saveInit)
 	return false;
 }
 
-#endif

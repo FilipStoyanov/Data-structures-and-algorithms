@@ -1,0 +1,16 @@
+Kolorado Wien 2000
+Wien Paris 800
+Paris Pekin 3000
+Ankara Moskva 1000
+Teheran Ankara 1200
+Ankara Paris 1100
+Paris Moskva 2000
+Moskva Teheran 650
+Moskva Pekin 990
+Kolorado Moskva 3100
+Kolorado Paris 4000
+Kolorado Pekin 6000
+Kolorado Ankara 4200
+Wien Ankara 1350
+Wien Moskva 800
+Wien Teheran 1100

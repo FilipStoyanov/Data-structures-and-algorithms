@@ -1,6 +1,4 @@
 #pragma once
-#ifndef _GRAPH_H
-#define _GRAPH_H
 #include<iostream>
 #include<unordered_map>
 #include<fstream>
@@ -19,19 +17,19 @@ private:
 	std::vector<std::string>path;
 public:
 	Graph();
-	std::unordered_map < std::string, std::list<std::pair<std::string, unsigned int>>> getList();
+	const std::unordered_map <std::string, std::list<std::pair<std::string, unsigned int>>>& getList();
 	void SortedGraph();
-	void addEdge(std::string x, std::string y, int weight);
+	void addEdge(const std::string& , const std::string& , const unsigned int& );
 	void printAdjList();
 	int GetNumEdge();
 	int GetNumVertex();
+	std::vector<std::string> getPath();
 	void OutList();
-	size_t RetPos(std::string str);
-	void Hamiltonian(std::string startPoint);
+	size_t RetPos(const std::string& );
+	void Hamiltonian(const std::string& );
 	void PrintPath();
-	void ReadGraph(std::string filename);
+	void ReadGraph(const std::string& );
 
 };
 
 
-#endif

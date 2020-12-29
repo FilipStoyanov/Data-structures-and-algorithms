@@ -1,5 +1,6 @@
-#ifndef _GRAPH_CPP
-#define _GRAPH_CPP
+#pragma once
+#ifndef _GRAPH_H
+#define _GRAPH_H
 #include<iostream>
 #include<unordered_map>
 #include<fstream>
@@ -17,7 +18,7 @@
 		this->NEdge = 0;
 		this->NVertex = 0;
 	}
-	std::unordered_map < std::string, std::list<std::pair<std::string, unsigned int>>> Graph::getList()
+	const std::unordered_map < std::string, std::list<std::pair<std::string, unsigned int>>>& Graph::getList()
 	{
 		return this->l;
 	}
@@ -25,7 +26,6 @@
 	void Graph::SortedGraph()
 	{
 		std::list<std::pair<std::string, unsigned int>>EdgeSort;
-		std::pair<std::string, unsigned int> CurrentPair;
 		std::list<std::pair<std::string, unsigned int>>::iterator itEdge;
 		std::list<std::pair<std::string, unsigned int>>::iterator NextIt;
 		std::unordered_map < std::string, std::list<std::pair<std::string, unsigned int>>>::iterator mapIt;
@@ -38,8 +38,14 @@
 			(*mapIt).second.sort(sortbysec);
 			mapIt++;
 		}
+		EdgeSort.clear();
+
 	}
-	void Graph::addEdge(std::string x, std::string y, int weight)
+	std::vector<std::string>  Graph:: getPath ()
+	{
+		return this->path;
+	}
+	void Graph::addEdge(const std::string& x, const std::string& y, const unsigned int& weight)
 	{
 		if (MapMember(x, this->getList()) == false || (MapMember(y, this->getList()) == false))
 		{
@@ -94,7 +100,7 @@
 			std::cout << VertexList[i] << std::endl;
 		}
 	}
-	size_t Graph::RetPos(std::string str)
+	size_t Graph::RetPos(const std::string& str)
 	{
 
 		for (size_t i = 0; i < VertexList.size(); i++)
@@ -106,7 +112,7 @@
 		}
 	}
 
-	void Graph::Hamiltonian(std::string startPoint)
+	void Graph::Hamiltonian(const std::string& startPoint)
 	{
 		if (path.size() == this->GetNumVertex())
 		{
@@ -142,6 +148,7 @@
 	}
 	void Graph::PrintPath()
 	{
+		std::cout << "This is the shortest path for the travelling salesman:" << std::endl;
 		for (size_t i = 0; i < path.size(); i++)
 		{
 			std::cout << path[i];
@@ -152,7 +159,7 @@
 		}
 		std::cout << std::endl;
 	}
-	void Graph::ReadGraph(std::string filename)
+	void Graph::ReadGraph(const std::string& filename)
 	{
 		std::ifstream in(filename);
 		std::string line;
@@ -170,9 +177,6 @@
 	
 
 	}
-
-
-
 
 
 #endif

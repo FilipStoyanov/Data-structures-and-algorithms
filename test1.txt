@@ -1,0 +1,6 @@
+Plovdiv Sofia 20
+Sofia Burgas 10
+Pernik Sofia 15
+Plovdiv Burgas 25
+Pernik Plovdiv 30
+Pernik Burgas 30
