@@ -14,3 +14,7 @@ Kolorado Ankara 4200
 Wien Ankara 1350
 Wien Moskva 800
 Wien Teheran 1100
+Teheran Paris 2400
+Teheran Kolorado 1200
+Teheran Pekin 5000
+Ankara Pekin 2150
