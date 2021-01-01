@@ -209,16 +209,15 @@
 			}
 			it++;
 		}
-
+		
 	}
 	void Graph::CreateSet()
 	{
-		KruskalPair current;
-		std::vector<KruskalPair>help;
+		std::string current;
+		std::vector<std::string>help;
 		for (size_t i = 0; i < this->GetNumVertex(); i++)
 		{
-			current.first = VertexList[i];
-			current.second = 0;
+			current = VertexList[i];
 			help.push_back(current);
 			SpanningTree.push_back(help);
 			help.clear();
@@ -230,7 +229,7 @@
 		{ 
 			for (size_t j = 0; j < SpanningTree[i].size(); j++)
 			{
-				if (SpanningTree[i][j].first == s)
+				if (SpanningTree[i][j] == s)
 				{
 					return i;
 				}
@@ -245,7 +244,7 @@
 		std::vector<std::pair<unsigned int, iPair>> ::iterator KruskalItNext;
 		int index1;
 		int index2;
-		std::vector < KruskalPair > ex;
+		std::vector < std::string > ex;
 		for (KruskalIt = AllEdges.begin(); KruskalIt != AllEdges.end(); KruskalIt++)
 		{
 
@@ -254,15 +253,16 @@
 			if (index1 != index2)
 			{
 					ex = SpanningTree[index2];
-					for (size_t k = 0; k < SpanningTree[index2].size(); k++)
-					{
-						SpanningTree[index2][k].first = "";
-					}
 					for (size_t i = 0; i < ex.size(); i++)
 					{
 						SpanningTree[index1].push_back(ex[i]);
 						MinimalCost += (*KruskalIt).first;  //PROBLEM WITH LENGTH OF THE PATH
 					} 
+					for (size_t k = 0; k < SpanningTree[index2].size(); k++)
+					{
+						SpanningTree[index2][k] = "";
+					}
+			
 			}
 		}
 		for (size_t i = 0; i < SpanningTree.size(); i++)
@@ -271,15 +271,15 @@
 			{
 				for (size_t j = 0; j < SpanningTree[i].size(); j++)
 				{
-					if (SpanningTree[i][j].first == StartCity)
+					if (SpanningTree[i][j] == StartCity)
 					{
 						for (size_t counter1 = j; counter1 < SpanningTree[i].size(); counter1++)
 						{
-							Path_Kruskal.push_back(SpanningTree[i][counter1].first);
+							Path_Kruskal.push_back(SpanningTree[i][counter1]);
 						}
 						for (size_t counter2 = 0; counter2 < j; counter2++)
 						{
-							Path_Kruskal.push_back(SpanningTree[i][counter2].first);
+							Path_Kruskal.push_back(SpanningTree[i][counter2]);
 						}
 						Path_Kruskal.push_back(StartCity);
 					}
@@ -291,7 +291,7 @@
     void Graph::PrintKruskal()
 	{	
 		std::cout << "THIS IS CURCUIT ACCORDING MINIMAL SPANNING TREE'S METHOD!" << std::endl;
-		for (size_t i = 0; i < Path_Kruskal.size(); i++)
+		for (size_t i = 0; i < Path_Kruskal.size()-1; i++)
 		{
 			std::cout << Path_Kruskal[i] << "->";
 		}
@@ -303,7 +303,6 @@
 		ReadGraph(filename);
 		SortedGraph();
 		Hamiltonian(StartCity);
-		PrintPath();
 	}
 	void Graph::ALGO2(const std::string& filename, const std::string& StartCity)
 	{
@@ -311,6 +310,5 @@
 		GreedySort();
 		CreateSet();
 		Kruskal(StartCity);
-		PrintKruskal();
 	}
 #endif

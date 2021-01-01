@@ -20,4 +20,8 @@ Moskva Plovdiv 1200
 Plovdiv Kolorado 4050
 Plovdiv Paris 1930
 Plovdiv Teheran 1320
-
+Plovdiv Moskva 1100
+Wien Pekin 3100
+Kolorado Teheran 5500
+Paris Teheran 2650
+Ankara Plovdiv 700

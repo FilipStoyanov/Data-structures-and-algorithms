@@ -20,7 +20,7 @@ private:
 
 	typedef std::pair<std::string, std::string>iPair;   //Greedy Algorithm MINIMAL SPANNING TREE
 	typedef std::pair<std::string, int>KruskalPair;
-	std::vector<std::vector<KruskalPair>>SpanningTree;
+	std::vector<std:: vector<std::string>>SpanningTree;
 	std::vector<std::pair<unsigned int,iPair>>AllEdges;
 	std::vector<std::string>Path_Kruskal;
 
